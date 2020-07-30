@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     minHeight: 100,
     flexBasis: 100,
-    width: 200,
     backgroundColor: gray,
     marginBottom: 8,
   },
