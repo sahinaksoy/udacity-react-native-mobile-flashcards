@@ -7,7 +7,8 @@ import DeckDetail from "./components/DeckDetail";
 import AddDeck from "./components/AddDeck";
 import AddCard from "./components/AddCard";
 import Quiz from "./components/Quiz";
-
+import { getDecks } from "./utils/api";
+import TestScreen from "./components/TestScreen";
 export default function App() {
   return (
     <View style={styles.container}>
@@ -16,7 +17,9 @@ export default function App() {
       {/* <DeckDetail /> */}
       {/* <AddDeck /> */}
       {/* <AddCard /> */}
-      <Quiz />
+
+      {/* <Quiz /> */}
+      <TestScreen />
       <StatusBar style="auto" />
     </View>
   );
