@@ -5,6 +5,7 @@ import Deck from "./components/Deck";
 import DeckList from "./components/DeckList";
 import DeckDetail from "./components/DeckDetail";
 import AddDeck from "./components/AddDeck";
+import AddCard from "./components/AddCard";
 
 export default function App() {
   return (
@@ -12,7 +13,8 @@ export default function App() {
       {/* <Deck /> */}
       {/* <DeckList /> */}
       {/* <DeckDetail /> */}
-      <AddDeck />
+      {/* <AddDeck /> */}
+      <AddCard />
       <StatusBar style="auto" />
     </View>
   );
