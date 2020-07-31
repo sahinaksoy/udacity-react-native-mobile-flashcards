@@ -6,6 +6,7 @@ import DeckList from "./components/DeckList";
 import DeckDetail from "./components/DeckDetail";
 import AddDeck from "./components/AddDeck";
 import AddCard from "./components/AddCard";
+import Quiz from "./components/Quiz";
 
 export default function App() {
   return (
@@ -14,7 +15,8 @@ export default function App() {
       {/* <DeckList /> */}
       {/* <DeckDetail /> */}
       {/* <AddDeck /> */}
-      <AddCard />
+      {/* <AddCard /> */}
+      <Quiz />
       <StatusBar style="auto" />
     </View>
   );
