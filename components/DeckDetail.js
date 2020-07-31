@@ -1,18 +1,19 @@
 import React from "react";
-import { TouchableOpacity, View, Text } from "react-native";
+import { View, Text } from "react-native";
 import Deck from "./Deck";
+import TouchButton from "./TouchButton";
 
 const DeckDetail = (props) => {
   return (
     <View>
       <Deck />
       <View>
-        <TouchableOpacity>
+        <TouchButton>
           <Text>Add Card</Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
+        </TouchButton>
+        <TouchButton>
           <Text>Start Quiz</Text>
-        </TouchableOpacity>
+        </TouchButton>
       </View>
     </View>
   );
