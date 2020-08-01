@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     backgroundColor: red,
+    maxHeight: 50,
   },
   quizCard: {
     flex: 1,
