@@ -19,6 +19,24 @@ const DeckList = (props) => {
       >
         <Deck />
       </TouchableOpacity>
+      <TouchableOpacity
+        key={"title"}
+        onPress={() => navigation.navigate("DeckDetail")}
+      >
+        <Deck />
+      </TouchableOpacity>
+      <TouchableOpacity
+        key={"title"}
+        onPress={() => navigation.navigate("DeckDetail")}
+      >
+        <Deck />
+      </TouchableOpacity>
+      <TouchableOpacity
+        key={"title"}
+        onPress={() => navigation.navigate("DeckDetail")}
+      >
+        <Deck />
+      </TouchableOpacity>
     </ScrollView>
   );
 };
