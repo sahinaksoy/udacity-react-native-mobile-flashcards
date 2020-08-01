@@ -16,6 +16,7 @@ import {
 import AddCard from "./AddCard";
 import Deck from "./Deck";
 import Quiz from "./Quiz";
+import DeckDetail from "./DeckDetail";
 
 const navigationOptions = {
   headerTintColor: white,
@@ -28,7 +29,7 @@ const MainNavigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Home" component={BottomTabNavigator} />
-      <Stack.Screen name="Deck" component={Deck} />
+      <Stack.Screen name="DeckDetail" component={DeckDetail} />
       <Stack.Screen name="Quiz" component={Quiz} />
       <Stack.Screen name="AddCard" component={AddCard} />
     </Stack.Navigator>

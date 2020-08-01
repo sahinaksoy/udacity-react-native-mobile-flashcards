@@ -1,17 +1,24 @@
 import React from "react";
 import Deck from "./Deck";
-import { ScrollView } from "react-native";
+import {
+  ScrollView,
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
+
 
 const DeckList = (props) => {
+  const { navigation } = props;
   return (
     <ScrollView>
-      <Deck />
-      <Deck />
-      <Deck />
-      <Deck />
-      <Deck />
-      <Deck />
-      <Deck />
+      <TouchableOpacity
+        key={"title"}
+        onPress={() => navigation.navigate("DeckDetail")}
+      >
+        <Deck />
+      </TouchableOpacity>
     </ScrollView>
   );
 };
