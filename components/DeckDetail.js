@@ -39,7 +39,9 @@ class DeckDetail extends Component {
               >
                 <Text>Add Card</Text>
               </TouchButton>
-              <TouchButton onPress={() => navigation.navigate("Quiz")}>
+              <TouchButton
+                onPress={() => navigation.navigate("Quiz", { id: deck.title })}
+              >
                 <Text>Start Quiz</Text>
               </TouchButton>
             </View>

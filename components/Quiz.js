@@ -11,56 +11,99 @@ import {
   lightPurp,
   pink,
 } from "../utils/colors";
+import { getDeck } from "../utils/api";
 
 class Quiz extends Component {
   state = {
     showAnswer: false,
+    deck: {
+      title: "",
+      questions: [],
+    },
+    currentIndex: 0,
+    correctCount: 0,
   };
+
+  componentDidMount() {
+    const { route } = this.props;
+    const id = route.params.id;
+
+    this.props.navigation.addListener("focus", () => {
+      getDeck(id).then((deck) => {
+        this.setState({
+          deck,
+        });
+        this.forceUpdate();
+      });
+    });
+  }
 
   handleShowAnswer = () => {
     this.setState({
       showAnswer: true,
     });
   };
+
+  handleCorrect = () => {
+    this.setState({
+      currentIndex: this.state.currentIndex + 1,
+      correctCount: this.state.correctCount + 1,
+      showAnswer: false,
+    });
+  };
+
+  handleInCorrect = () => {
+    this.setState({
+      currentIndex: this.state.currentIndex + 1,
+      correctCount: this.state.correctCount + 1,
+      showAnswer: false,
+    });
+  };
+
   render() {
-    const { showAnswer } = this.state;
+    const { deck, showAnswer, currentIndex } = this.state;
+    console.log(deck);
+    const total = deck.questions.length;
+    const question = deck.questions[currentIndex];
     return (
       <View style={{ flex: 1 }}>
-        <View style={styles.reminderText}>
-          <Text>
-            Card {5} of {8}
-          </Text>
-        </View>
-        <View style={styles.quizCard}>
-          <Text style={styles.questionText}>
-            Ankara where is the capital city?
-          </Text>
-          <View style={{ marginTop: 10 }} />
-          {!showAnswer && (
-            <TouchButton onPress={this.handleShowAnswer}>
-              <Text>Show Answer</Text>
-            </TouchButton>
-          )}
-          {showAnswer && (
-            <React.Fragment>
-              <TouchButton>
-                <Text>Show Answer</Text>
-              </TouchButton>
+        {total > 0 && (
+          <React.Fragment>
+            <View style={styles.reminderText}>
+              <Text>
+                Card {currentIndex + 1} of {deck.questions && total}
+              </Text>
+            </View>
+            <View style={styles.quizCard}>
+              <Text style={styles.questionText}>{question.question}</Text>
               <View style={{ marginTop: 10 }} />
-              <Text style={styles.answerText}>Turkey</Text>
-              <View style={{ marginTop: 10 }} />
+              {!showAnswer && (
+                <TouchButton onPress={this.handleShowAnswer}>
+                  <Text>Show Answer</Text>
+                </TouchButton>
+              )}
+              {showAnswer && (
+                <React.Fragment>
+                  <TouchButton>
+                    <Text>Show Answer</Text>
+                  </TouchButton>
+                  <View style={{ marginTop: 10 }} />
+                  <Text style={styles.answerText}>{question.answer}</Text>
+                  <View style={{ marginTop: 10 }} />
 
-              <View>
-                <TouchButton>
-                  <Text>Correct</Text>
-                </TouchButton>
-                <TouchButton>
-                  <Text>Incorrect</Text>
-                </TouchButton>
-              </View>
-            </React.Fragment>
-          )}
-        </View>
+                  <View>
+                    <TouchButton onPress={this.handleCorrect}>
+                      <Text>Correct</Text>
+                    </TouchButton>
+                    <TouchButton onPress={this.handleInCorrect}>
+                      <Text>Incorrect</Text>
+                    </TouchButton>
+                  </View>
+                </React.Fragment>
+              )}
+            </View>
+          </React.Fragment>
+        )}
       </View>
     );
   }
