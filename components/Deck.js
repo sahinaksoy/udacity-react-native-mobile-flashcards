@@ -1,19 +1,54 @@
-import React from "react";
+import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { gray, white, pink } from "../utils/colors";
+import { getDeck } from "../utils/api";
 
-const Deck = (props) => {
-  return (
-    <View style={styles.deckBox}>
-      <View>
-        <Text style={styles.deckText}>Deck 1</Text>
+class Deck extends Component {
+  state = {
+    deck: {},
+  };
+
+  componentDidMount() {
+    const { id } = this.props;
+    getDeck(id).then((deck) => {
+      this.setState({
+        deck,
+      });
+    });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.id !== this.props.id) {
+      const { id } = this.props;
+      getDeck(id).then((deck) => {
+        this.setState({
+          deck,
+        });
+      });
+    }
+  }
+  render() {
+    const { deck } = this.state;
+  
+    return (
+      <View style={styles.deckBox}>
+        {deck && (
+          <React.Fragment>
+            <View>
+              <Text style={styles.deckText}>{deck.title && deck.title}</Text>
+            </View>
+            <View>
+              <Text style={styles.cardText}>
+                {deck.questions && deck.questions.length}
+                &nbsp;cards
+              </Text>
+            </View>
+          </React.Fragment>
+        )}
       </View>
-      <View>
-        <Text style={styles.cardText}>10 cards</Text>
-      </View>
-    </View>
-  );
-};
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   deckBox: {
@@ -33,4 +68,5 @@ const styles = StyleSheet.create({
     color: white,
   },
 });
+
 export default Deck;

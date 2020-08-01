@@ -4,11 +4,12 @@ import { decks } from "./_DATA";
 
 export const getDecks = async () => {
   const decksByStore = await AsyncStorage.getItem(FLASHCARD_DECK_STORAGE_KEY);
+ 
   //Set initial data
-  if (decksByStore) {
+  if (decksByStore == null) {
     AsyncStorage.setItem(FLASHCARD_DECK_STORAGE_KEY, JSON.stringify(decks));
   }
-  return decksByStore ? decks : JSON.parse(decksByStore);
+  return decksByStore == null ? decks : JSON.parse(decksByStore);
 };
 
 export const getDeck = async (id) => {
