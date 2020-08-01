@@ -1,8 +1,29 @@
 import React, { Component } from "react";
 import { Text, View, StyleSheet, TextInput } from "react-native";
 import TouchButton from "./TouchButton";
+import { addCardToDeck } from "../utils/api";
 
 class AddCard extends Component {
+  state = {
+    question: "",
+    answer: "",
+  };
+
+  handleQuestionChange = (question) => {
+    this.setState({ question });
+  };
+  handleAnswerChange = (answer) => {
+    this.setState({ answer });
+  };
+
+  handleSubmit = () => {
+    const { route, navigation } = this.props;
+    const id = route.params.id;
+    addCardToDeck(id, this.state).then(() => {
+      navigation.goBack();
+      this.setState({ question: "", answer: "" });
+    });
+  };
   render() {
     return (
       <View>
@@ -10,17 +31,16 @@ class AddCard extends Component {
           <TextInput
             placeholder="Question"
             autoFocus={true}
-            returnKeyType="done"
+            onChangeText={this.handleQuestionChange}
           />
         </View>
         <View style={{ margin: 20, borderWidth: 1 }}>
           <TextInput
             placeholder="Answer"
-            autoFocus={true}
-            returnKeyType="done"
+            onChangeText={this.handleAnswerChange}
           />
         </View>
-        <TouchButton>Create Card</TouchButton>
+        <TouchButton onPress={this.handleSubmit}>Create Card</TouchButton>
       </View>
     );
   }

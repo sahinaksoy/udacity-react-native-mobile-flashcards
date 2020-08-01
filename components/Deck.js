@@ -4,32 +4,10 @@ import { gray, white, pink } from "../utils/colors";
 import { getDeck } from "../utils/api";
 
 class Deck extends Component {
-  state = {
-    deck: {},
-  };
-
-  componentDidMount() {
-    const { id } = this.props;
-    getDeck(id).then((deck) => {
-      this.setState({
-        deck,
-      });
-    });
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.id !== this.props.id) {
-      const { id } = this.props;
-      getDeck(id).then((deck) => {
-        this.setState({
-          deck,
-        });
-      });
-    }
-  }
-  render() {
-    const { deck } = this.state;
   
+  render() {
+    const { deck } = this.props;
+
     return (
       <View style={styles.deckBox}>
         {deck && (

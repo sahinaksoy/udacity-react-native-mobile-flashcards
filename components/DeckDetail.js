@@ -13,22 +13,30 @@ class DeckDetail extends Component {
     const { route } = this.props;
     const id = route.params.id;
 
-    getDeck(id).then((deck) => {
-      this.setState({
-        deck,
+    this.props.navigation.addListener("focus", () => {
+      getDeck(id).then((deck) => {
+        this.setState({
+          deck,
+        });
+        this.forceUpdate();
       });
     });
   }
 
   render() {
     const { deck } = this.state;
+    const { navigation } = this.props;
     return (
       <View>
         {deck && (
           <React.Fragment>
-            <Deck id={deck.title} />
+            <Deck deck={deck} />
             <View>
-              <TouchButton onPress={() => navigation.navigate("AddCard")}>
+              <TouchButton
+                onPress={() =>
+                  navigation.navigate("AddCard", { id: deck.title })
+                }
+              >
                 <Text>Add Card</Text>
               </TouchButton>
               <TouchButton onPress={() => navigation.navigate("Quiz")}>
