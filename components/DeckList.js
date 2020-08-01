@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import Deck from "./Deck";
 import {
   ScrollView,
-  View,
-  Text,
-  StyleSheet,
   TouchableOpacity,
 } from "react-native";
 import { getDecks } from "../utils/api";

@@ -10,8 +10,6 @@ const BottomTabNavigator = () => {
     <Tab.Navigator>
       <Tab.Screen name="Decks" component={DeckList} />
       <Tab.Screen name="AddDeck" component={AddDeck} />
-      <Tab.Screen name="Test" component={TestScreen} />
-
     </Tab.Navigator>
   );
 };
