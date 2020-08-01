@@ -9,19 +9,15 @@ import AddCard from "./components/AddCard";
 import Quiz from "./components/Quiz";
 import { getDecks } from "./utils/api";
 import TestScreen from "./components/TestScreen";
+import MainNavigator from "./components/MainNavigator";
+import BottomTabNavigator from "./components/BottomTabNavigator";
+import { NavigationContainer } from "@react-navigation/native";
+
 export default function App() {
   return (
-    <View style={styles.container}>
-      {/* <Deck /> */}
-      {/* <DeckList /> */}
-      {/* <DeckDetail /> */}
-      {/* <AddDeck /> */}
-      {/* <AddCard /> */}
-
-      {/* <Quiz /> */}
-      <TestScreen />
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <MainNavigator />
+    </NavigationContainer>
   );
 }
 
