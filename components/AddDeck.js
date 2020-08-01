@@ -5,6 +5,9 @@ import { saveDeckTitle } from "../utils/api";
 import { StackActions, NavigationActions } from "react-navigation";
 
 class AddDeck extends Component {
+  state = {
+    title: "",
+  };
   handleChange = (title) => {
     this.setState({ title });
   };
@@ -17,7 +20,7 @@ class AddDeck extends Component {
     this.setState({
       title: "",
     });
-    
+
     navigation.navigate("DeckDetail", { id: title });
   };
 
@@ -34,7 +37,12 @@ class AddDeck extends Component {
             onChangeText={this.handleChange}
           />
         </View>
-        <TouchButton onPress={this.handleSubmit}>Create Deck</TouchButton>
+        <TouchButton
+          onPress={this.handleSubmit}
+          disbled={this.state.title == ""}
+        >
+          Create Deck
+        </TouchButton>
       </View>
     );
   }

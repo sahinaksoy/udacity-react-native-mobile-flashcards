@@ -40,7 +40,12 @@ class AddCard extends Component {
             onChangeText={this.handleAnswerChange}
           />
         </View>
-        <TouchButton onPress={this.handleSubmit}>Create Card</TouchButton>
+        <TouchButton
+          onPress={this.handleSubmit}
+          disbled={this.state.question == "" || this.state.answer == ""}
+        >
+          Create Card
+        </TouchButton>
       </View>
     );
   }

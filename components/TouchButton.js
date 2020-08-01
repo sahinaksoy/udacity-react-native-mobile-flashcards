@@ -2,10 +2,14 @@ import React from "react";
 import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
 import { red, white } from "../utils/colors";
 
-const TouchButton = ({ children, onPress }) => {
+const TouchButton = ({ children, onPress, disbled }) => {
   return (
     <View style={styles.touchBtnContainer}>
-      <TouchableOpacity style={styles.touchBtn} onPress={onPress}>
+      <TouchableOpacity
+        style={styles.touchBtn}
+        onPress={onPress}
+        disabled={disbled}
+      >
         <Text style={styles.touchBtnText}>{children}</Text>
       </TouchableOpacity>
     </View>
