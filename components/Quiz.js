@@ -13,6 +13,7 @@ import {
 } from "../utils/colors";
 import { getDeck } from "../utils/api";
 import QuizResult from "./QuizResult";
+import { setLocalNotification, clearLocalNotification } from "../utils/helpers";
 
 class Quiz extends Component {
   state = {
@@ -37,6 +38,7 @@ class Quiz extends Component {
         this.forceUpdate();
       });
     });
+    clearLocalNotification().then(setLocalNotification);
   }
 
   handleShowAnswer = () => {
