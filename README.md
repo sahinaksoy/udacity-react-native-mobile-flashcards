@@ -1,3 +1,12 @@
+
+## Project Description
+
+Using React Native, I have build an Android application that allows users to study collections of flashcards. The app will allow users to create different categories of flashcards called "decks", add flashcards to those decks, then take quizzes on those decks. 
+
+The application is tested;
+- Xiaomi Mi5 Prime  Android 8.0.0 OPR1 MIUI Global 10.2
+- IPhone 8 IOS 13.5.1
+
 ## Usage
 
 The project can be run with npm or yarn
