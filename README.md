@@ -15,5 +15,5 @@ This will open Expo Developer Tools in the browser.  You can then do one of the 
 
 or You can use following commands for directly open your Emulator
 
-[IOS] - `yarn start ios`
-[Android] - `yarn start android`
+[IOS] - `yarn ios`
+[Android] - `yarn android`
