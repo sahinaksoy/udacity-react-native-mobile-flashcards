@@ -1,6 +1,19 @@
-Running the application
-This application is build using a tool by Expo called 'create-react-native-app', so you will only need NodeJS and NPM (or Yarn) to start it. If you want to run the application on your Android device, download the Expo app from the Google Play Store and scan the QR code which is displayed in the command like window after running yarn start.
+## Usage
 
-\$ yarn install
+The project can be run with npm or yarn
+- `yarn install`
+- `yarn start`
 
-\$ yarn start
+This will open Expo Developer Tools in the browser.  You can then do one of the following.
+
+- Use your device to test:
+
+    Scan the QR Code using the Expo Client app ([Expo Client for Android & iOS](https://expo.io/tools#client))  from an Android or iOS device.
+- Use an Android Emulator or iOS Simulator to run the app:
+    - [iOS Simulator Setup](https://docs.expo.io/versions/v33.0.0/introduction/installation/#ios-simulator)
+    - [Android Emulator Setup](https://docs.expo.io/versions/v33.0.0/introduction/installation/#android-emulator)
+
+or You can use following commands for directly open your Emulator
+
+[IOS] - `yarn start ios`
+[Android] - `yarn start android`
